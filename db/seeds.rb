@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 categories = Category.create(
-    [{ title: :language }, { level: 1} ])
+    [{ title: :language , level: 1},
+     { title: :language , level: 2 }]
+)
 
 tests = Test.create(
     [{ title: 'Java', level: 3 },
@@ -26,16 +28,16 @@ questions = Question.create(
 )
 
 Answer.create(
-    [{ text: 'Answer 1q1' },
-     { text: 'Answer 2q1' },
-     { text: 'Answer 1q2' },
-     { text: 'Answer 2q2' },
-     { text: 'Answer 1q3' },
-     { text: 'Answer 2q3' },
-     { text: 'Answer 1q4' },
-     { text: 'Answer 2q4' },
-     { text: 'Answer 1q5' },
-     { text: 'Answer 2q5' }]
+    [{ text: 'Answer 1q1', correct: true  },
+     { text: 'Answer 2q1', correct: false  },
+     { text: 'Answer 1q2', correct: true  },
+     { text: 'Answer 2q2', correct: false },
+     { text: 'Answer 1q3', correct: true  },
+     { text: 'Answer 2q3', correct: false  },
+     { text: 'Answer 1q4', correct: true  },
+     { text: 'Answer 2q4', correct: false },
+     { text: 'Answer 1q5', correct: true  },
+     { text: 'Answer 2q5', correct: false  }]
 )
 
 users = User.create(

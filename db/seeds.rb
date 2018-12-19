@@ -6,28 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = Category.create(
+  Category.create!(
     [{ title: :language , level: 1},
-     { title: :language , level: 2 }]
-)
+     { title: :language , level: 2 }
+    ])
 
-tests = Test.create(
+  Test.create!(
     [{ title: 'Java', level: 3 },
      { title: 'Perl', level: 2 },
      { title: 'Ruby', level: 1 },
      { title: 'Python', level: 2},
-     { title: 'Javascript', level: 3 }]
-)
+     { title: 'Javascript', level: 3 }
+    ])
 
-questions = Question.create(
+  Question.create!(
     [{ text: 'Java question #1' },
      { text: 'Perl question #1' },
      { text: 'Ruby question #1' },
      { text: 'Python question #1' },
-     { text: 'Javascript question #1' }]
-)
+     { text: 'Javascript question #1' }
+    ])
 
-Answer.create(
+  Answer.create!(
     [{ text: 'Answer 1q1', correct: true  },
      { text: 'Answer 2q1', correct: false  },
      { text: 'Answer 1q2', correct: true  },
@@ -37,11 +37,16 @@ Answer.create(
      { text: 'Answer 1q4', correct: true  },
      { text: 'Answer 2q4', correct: false },
      { text: 'Answer 1q5', correct: true  },
-     { text: 'Answer 2q5', correct: false  }]
-)
+     { text: 'Answer 2q5', correct: false  }
+    ])
+   TestPassage.create!([
+       {user_id: users.first.id, test_id: tests.first.id},
+       { user_id: users.last.id, test_id: tests.last.id }
+   ])
 
-users = User.create(
+
+   User.create!(
     [{ name: :firstuser },
-     { name: :seconduser }]
-)
+     { name: :seconduser }
+    ])
 

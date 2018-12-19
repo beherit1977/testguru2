@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_184636) do
+ActiveRecord::Schema.define(version: 2018_12_19_191808) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text", null: false
     t.boolean "correct", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -30,6 +32,17 @@ ActiveRecord::Schema.define(version: 2018_12_17_184636) do
     t.string "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "test_id"
+    t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "test_passages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_test_passages_on_test_id"
+    t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -37,6 +50,8 @@ ActiveRecord::Schema.define(version: 2018_12_17_184636) do
     t.integer "level", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "categorie_id"
+    t.index ["categorie_id"], name: "index_tests_on_categorie_id"
   end
 
   create_table "users", force: :cascade do |t|

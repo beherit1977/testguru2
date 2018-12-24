@@ -40,8 +40,8 @@
      { text: 'Answer 2q5', correct: false  }
     ])
    TestPassage.create!([
-       {user_id: users.first.id, test_id: tests.first.id},
-       { user_id: users.last.id, test_id: tests.last.id }
+       {user_id: User.first.id, test_id: User.first.id},
+       { user_id: User.last.id, test_id: User.last.id }
    ])
 
 

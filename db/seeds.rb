@@ -1,52 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+users = User.create! [{ name: :firstuser }, { name: :seconduser }]
 
-  Category.create!(
-    [{ title: :language , level: 1},
-     { title: :language , level: 2 }
-    ])
-
-  Test.create!(
-    [{ title: 'Java', level: 3 },
-     { title: 'Perl', level: 2 },
-     { title: 'Ruby', level: 1 },
-     { title: 'Python', level: 2},
-     { title: 'Javascript', level: 3 }
-    ])
-
-  Question.create!(
-    [{ text: 'Java question #1' },
-     { text: 'Perl question #1' },
-     { text: 'Ruby question #1' },
-     { text: 'Python question #1' },
-     { text: 'Javascript question #1' }
-    ])
-
-  Answer.create!(
-    [{ text: 'Answer 1q1', correct: true  },
-     { text: 'Answer 2q1', correct: false  },
-     { text: 'Answer 1q2', correct: true  },
-     { text: 'Answer 2q2', correct: false },
-     { text: 'Answer 1q3', correct: true  },
-     { text: 'Answer 2q3', correct: false  },
-     { text: 'Answer 1q4', correct: true  },
-     { text: 'Answer 2q4', correct: false },
-     { text: 'Answer 1q5', correct: true  },
-     { text: 'Answer 2q5', correct: false  }
-    ])
-   TestPassage.create!([
-       {user_id: User.first.id, test_id: User.first.id},
-       { user_id: User.last.id, test_id: User.last.id }
-   ])
+categories = Category.create! [{ title: 'JS', level: 1 }, { title: 'Ruby', level: 2 }]
 
 
-   User.create!(
-    [{ name: :firstuser },
-     { name: :seconduser }
-    ])
+tests = Test.create! [{ title: 'Java', level: 3, category_id: categories[0].id, author: users[0] },
+                      { title: 'Perl', level: 2, category_id: categories[1].id, author: users[1] },
+                      { title: 'Ruby', level: 1, category_id: categories[0].id, author: users[0] }]
 
+TestPassage.create! [{user_id: users[0].id, test_id: tests[0].id},
+                     { user_id: users[0].id,  test_id: tests[2].id }]
+
+questions = Question.create! [{ text: 'Java question #1', test_id: tests[0].id },
+                              { text: 'Perl question #1', test_id: tests[1].id },
+                              { text: 'Ruby question #1', test_id: tests[2].id }]
+
+answers = Answer.create! [{ text: 'Answer 1q1', correct: true, question_id: questions[0].id},
+                          { text: 'Answer 2q1', correct: false, question_id: questions[0].id },
+                          { text: 'Answer 1q2', correct: true, question_id: questions[1].id },
+                          { text: 'Answer 2q2', correct: false, question_id: questions[1].id },
+                          { text: 'Answer 1q3', correct: true, question_id: questions[2].id },
+                          { text: 'Answer 2q3', correct: false, question_id: questions[2].id }]

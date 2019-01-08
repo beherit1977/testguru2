@@ -1,12 +1,12 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  scope :right, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
 
   validates :text, presence: true
   validate :validate_answers, on: :create
 
   def validate_answers
-    errors.add(:base) if question.answers.size >= 4
+    errors.add(:answers_size, 'Too many answers were made') if question.answers.size >= 4
   end
 end

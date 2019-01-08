@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   has_many :tests
 
-  scope :sort_by_name, -> { order(title: :asc) }
+  default_scope { order(title: :asc) }
 
   validates :title, presence: true
 end

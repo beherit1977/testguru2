@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render plain: "#{@question.body}"
+    render plain: "#{@question.text}"
   end
 
   def new
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:text)
   end
 
   def rescue_with_question_not_found

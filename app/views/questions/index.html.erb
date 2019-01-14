@@ -1,0 +1,14 @@
+<h1>Questions</h1>
+<table>
+  <% @questions.each do|question| %>
+    <tr bgcolor= "<%= cycle('grey', 'white') %>">
+      <td>
+        <dl>
+          <dt>
+            <a href="<%= url_for question %>"><%= question.body %></a>
+          </dt>
+        </dl>
+      </td>
+    </tr>
+  <% end %>
+</table>

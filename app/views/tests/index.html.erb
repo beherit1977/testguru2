@@ -1,0 +1,12 @@
+<h1>Tests</h1>
+<table>
+  <% @tests.each do|test| %>
+    <tr bgcolor= "<%= cycle('grey', 'white') %>">
+      <td>
+        <dl>
+          <dt><%= test.title%></dt>
+        </dl>
+      </td>
+    </tr>
+  <% end %>
+</table>

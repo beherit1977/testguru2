@@ -4,6 +4,6 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find_by(id: params[:id])
+    @test = Test.find_by(params[:id])
   end
 end

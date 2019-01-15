@@ -1,10 +1,10 @@
-<h1>Tests</h1>
+<h1>Tests Index</h1>
 <table>
   <% @tests.each do|test| %>
     <tr bgcolor= "<%= cycle('grey', 'white') %>">
       <td>
         <dl>
-          <dt><%= test.title%></dt>
+          <a href="<%= url_for test %>"><%= test.title %></a>
         </dl>
       </td>
     </tr>

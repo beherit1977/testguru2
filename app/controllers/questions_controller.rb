@@ -4,13 +4,7 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def show
-    # @question
-    # render plain: "#{@question.text}"
   end
 
   def new
@@ -40,7 +34,6 @@ class QuestionsController < ApplicationController
   end
 
   private
-
   def find_test
     @test = Test.find(params[:test_id])
   end

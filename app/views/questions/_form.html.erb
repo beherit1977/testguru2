@@ -4,8 +4,8 @@
   <%= render 'shared/errors', resource: @question %>
 
   <p>
-    <%= form.label :text %>
-    <%= form.text_field :text, id: :question_body %>
+  <%= form.label :question, id: :question_body %>
+  <%= form.text_field :text %>
   </p>
 
   <p><%= form.submit %></p>

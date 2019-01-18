@@ -16,6 +16,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render plain: 'Test not found'
+    render inline: '<h1>Test not found [404]</h1>', status: 404
   end
 end

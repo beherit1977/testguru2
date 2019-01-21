@@ -1,0 +1,6 @@
+Вы ответили верно на <%= @test_passage.correct_questions %> вопросов.
+Это <%= @test_passage.current_percent(@test_passage) %>% от общего кол-ва вопросов
+<font color="<%= percent_and_msg(@test_passage).color %>"><%= percent_and_msg(@test_passage).message %></font>
+<p>
+  <%= link_to 'All tests', root_path %>
+</p>

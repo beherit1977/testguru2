@@ -3,6 +3,7 @@ belongs_to :test
 belongs_to :user
 belongs_to :current_question, class_name: 'Question', optional: true
 
+# из видео
 before_validation :before_validation_set_first_and_second_question, on: :create
 #after_commit :after_commit_set_second_question, on: :create
 
@@ -26,6 +27,7 @@ end
 
 private
 
+# Это из видео кроме next_question
 def before_validation_set_first_and_second_question
   if test.persisted?
     self.current_question = test.questions.first
@@ -41,6 +43,7 @@ def correct_answers
   current_question.answers.right
 end
 
+#это из видео
 def next_question
   test.questions.order(:id).where('id > ?', current_question.id).first
 end

@@ -5,27 +5,22 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-  @test_passage.accept!(params[:answer_ids])
+    @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-    redirect_to result_test_passage_path(@test_passage)
+      redirect_to result_test_passage_path(@test_passage)
     else
-    render :show
+      render :show
     end
   end
 
   def result
-  @test_passage.correct_questions
+    @test_passage.correct_questions
   end
 
   private
 
-
-  def test_passage_params
-  params.require(:test_passage).permit(:body, :correct)
-  end
-
   def set_test_passage
-  @test_passage = TestPassage.find(params[:id])
+    @test_passage = TestPassage.find(params[:id])
   end
 end

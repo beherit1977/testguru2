@@ -14,10 +14,15 @@ class QuestionsController < ApplicationController
   def edit
   end
 
-  def create
-    @test.questions.create(question_params)
-    redirect_to @test
+   def create
+    @question =  @test.questions.new(question_params)
+    if @question.save
+      redirect_to @question
+    else
+      render :new
+    end
   end
+
 
   def update
     if @question.update(question_params)

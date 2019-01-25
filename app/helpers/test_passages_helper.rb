@@ -1,7 +1,7 @@
 module TestPassagesHelper
-  def percent_and_msg(test_passage)
+  def test_passage_result
     result = Struct.new(:color, :message)
-    if test_passage.current_percent(test_passage) >= 85
+    if @test_passage.success_test?
       result.new(:green, 'Successfully completed')
     else
       result.new(:red, 'Try again')

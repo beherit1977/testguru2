@@ -3,13 +3,13 @@
   <div>
     <p>
       Вы ответили верно на <%= @test_passage.correct_questions %> вопросов.
-      Это <%= @test_passage.current_percent(@test_passage) %>% от общего кол-ва вопросов
+      Это <%= @test_passage.current_percent %>% от общего кол-ва вопросов
     </p>
   </div>
   
   <div>
     <h2>
-      <font color="<%= percent_and_msg(@test_passage).color %>"><%= percent_and_msg(@test_passage).message %></font>
+      <font color="<%= test_passage_result.color %>"><%= test_passage_result.message %></font>
     </h2>
   </div>
   

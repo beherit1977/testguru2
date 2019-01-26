@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
-  belongs_to :category
-  belongs_to :author, class_name: "User"
+  belongs_to :category, optional: true
+  belongs_to :author, class_name: "User", foreign_key: 'user_id', optional: true
   has_many :questions
   has_many :test_passages
   has_many :users, through: :test_passages
@@ -8,7 +8,7 @@ class Test < ApplicationRecord
   scope :low_level, -> { where(level: 0..1) }
   scope :normal_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 5..Float::INFINITY) }
-
+  
   scope :by_category, -> (name) { joins(:category).where(categories: {title: name}) }
   scope :by_title, -> { order(title: :desc) }
 

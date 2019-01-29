@@ -1,16 +1,14 @@
 class SessionsController < ApplicationController
-
-  before_action :authenticate_user!, only: :destroy
-
+  
   def new
   end
 
   def create
-    user = User.authenticate(email: params[:email])
-    if user
+    user = User.find_by(email: params[:email])
+
+    if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Welcome back, #{user.name}!"
-      redirect_to(cookies.delete(:intended_url) || tests_path)
+      redirect_to cookies.delete(:path) || tests_path
     else
       flash.now[:alert] = 'Are you a Guru? Verify your Email and Password please'
       render :new

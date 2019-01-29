@@ -1,7 +1,9 @@
-class TestsController < ApplicationController
+class TestsController < AuthenticatedController
+  
+  skip_before_action :authenticate_user!, only: :index
   
   before_action :find_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: %i[start]
+  # before_action :set_user, only: %i[start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -42,8 +44,9 @@ class TestsController < ApplicationController
   end
   
   def start
-      @user.tests.push(@test)
-      redirect_to @user.test_passage(@test)
+    @user = current_user
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
   end
 
   private
@@ -56,9 +59,9 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
-  def set_user
-    @user = current_user
-  end
+  # def set_user
+  #   @user = current_user
+  # end
 
   def rescue_with_test_not_found
     render inline: '<h1>Test not found [404]</h1>', status: 404

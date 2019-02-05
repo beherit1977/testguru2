@@ -11,11 +11,17 @@
 
 <body>
   <%= render 'shared/navbar' %>
+</br>
+</br>
 
-  <%= render 'shared/flash' %>
+  <% if user_signed_in? %>
+  <p class="nav user">Welcome, <b><%= show_name %></b> Guru</p>
+  <% end %>
+  <%= show_flash :info %>
+  <%= show_flash :alert %>
 
-  <%= yield %>
+<%= yield %>
 
-  <%= render 'shared/footer' %>
+<%= render 'shared/footer' %>
 </body>
 </html>

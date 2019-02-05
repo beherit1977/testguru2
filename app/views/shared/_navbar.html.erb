@@ -1,15 +1,11 @@
-<div class="nav user">
+<p>
+  <%= link_to 'Test Guru', tests_path %>
+<p>
 
-  <p>Project <%= link_to 'TestGuru', tests_path %> - for making and taking tests.</p>
+<p>
+  <%= user_signed_in? ? link_to('Выход', destroy_user_session_path, method: :delete) : link_to('Вход', user_session_path) %>
+<p>
 
-  <% if user_signed_in? %>
-    <p>Welcome, <b><%= current_user.email %></b> Guru |
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    </p>
-  <% else %>
-    <p>
-      <%= link_to 'Register', new_user_registration_path %> |
-      <%= link_to 'Login', user_session_path %>
-    </p>
-  <% end %>
-</div>
+<p>
+  <%= link_to('Регистрация', new_user_registration_path) unless user_signed_in? %>
+<p>

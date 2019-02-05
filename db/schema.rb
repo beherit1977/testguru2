@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_081116) do
     t.string "type", default: "User", null: false
     t.string "first_name"
     t.string "last_name"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["type"], name: "index_users_on_type"
   end

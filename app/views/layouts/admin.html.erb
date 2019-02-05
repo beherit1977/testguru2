@@ -9,8 +9,9 @@
 </head>
 
 <body>
-<%= render 'admin/nav' %>
-<%= render 'shared/flash' %>
+  <%= render 'admin/nav' %>
+  <%= show_flash :alert %>
+  <%= show_flash :info %>
 
 <%= yield %>
 

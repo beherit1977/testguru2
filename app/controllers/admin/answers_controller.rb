@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
 
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
   before_action :find_question, only: [:new, :create]
@@ -33,7 +33,8 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question
+    #redirect_to @answer.question
+    redirect_to admin_question_path(@answer.question)
   end
 
   private

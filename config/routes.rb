@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post :start, on: :member
   end
 
-  resources :surveys, only: %i[show update] do
+  resources :test_passages, only: %i[show update] do
     get :result, on: :member
   end
 

@@ -10,8 +10,4 @@ module ApplicationHelper
   def show_flash(key)
     content_tag :p, flash[key], class: "flash #{key}" if flash[key]
   end
-
-  def show_name
-    current_user.last_name.presence || current_user.email
-  end
 end

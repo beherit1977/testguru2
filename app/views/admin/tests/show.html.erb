@@ -1,17 +1,19 @@
-<h1>Test: <%= @test.title %></h1>
+<h1><%= t('.title') %> :
+  <%= @test.title %>
+</h1>
 
-<p>Difficulty: <%= @test.level %></p>
+<p><%= t('.level')%> :
+  <%= @test.level %>
+</p>
 <p>Publication date: <%= @test.created_at.strftime('%Y-%m-%d %H:%M') %></p>
 <p><%= link_to 'New Question', new_admin_test_question_path(@test) %></p>
 
 <table>
   <tr>
-    <th>Question</th>
-    <th colspan="3">Actions</th>
+    <th><h3><%= t('.questions') %>:</h3> </th>
   </tr>
-  <%#= render @test.questions %>
   <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </table>
 
-<p><%= link_to 'Edit', edit_admin_test_path(@test) %></p>
-<p><%= link_to 'Back', admin_tests_path %></p>
+<p><%= link_to  t('.edit'), edit_admin_test_path(@test) %></p>
+<p><%= link_to t('.back'), admin_tests_path %></p>

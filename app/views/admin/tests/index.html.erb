@@ -2,18 +2,24 @@
 <h1>Tests Available:</h1>
 
 <p>
-  <%= link_to 'New Test', new_admin_test_path %>
+  <%= link_to t('.new_test'), new_admin_test_path %>
 </p>
 
+   <% if @tests.present? %>
 <table>
-  
+
   <tr>
-    <th>Title</th>
-    <th>Difficulty</th>
-    <th>Questions</th>
-    <th colspan="4">Actions</th>
+    <th><%= t('.table.title') %></th>
+    <th><%= t('.table.level') %></th>
+    <th><%= t('.table.questions') %></th>
+    <th colspan="4"><%= t('.table.actions') %></th>
   </tr>
   
   <%= render @tests %>
+
+  <% else %>
+  <p>There is no tests available.</p>
+  <p><%= t('.no_tests_available') %></p>
+  <% end %>
 
 </table>

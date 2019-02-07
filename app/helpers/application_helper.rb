@@ -6,4 +6,8 @@ module ApplicationHelper
   def github_url(author, repo)
     link_to repo, "http://github.com/#{author}/#{repo}", target: '_blank'
   end
+
+  def show_flash(key)
+    content_tag :p, flash[key], class: "flash #{key}" if flash[key]
+  end
 end

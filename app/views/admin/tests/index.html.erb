@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h1>Tests Available:</h1>
+
+<p>
+  <%= link_to 'New Test', new_admin_test_path %>
+</p>
+
+<table>
+  
+  <tr>
+    <th>Title</th>
+    <th>Difficulty</th>
+    <th>Questions</th>
+    <th colspan="4">Actions</th>
+  </tr>
+  
+  <%= render @tests %>
+
+</table>

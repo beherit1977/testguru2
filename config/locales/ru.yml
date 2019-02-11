@@ -31,18 +31,9 @@ ru:
         body: "Тело ответа"
         correct: "Правильный ответ"
 
-  questions_helper:
-    create:
-      header: "Создать Новый %{test_title} Вопрос"
-    edit:
-      header: "Редактировать %{test_title} Вопрос"
-
-  test_passages_helper:
-    current_question: "Текущий Вопрос"
-    result:
-      success: "УСПЕХ! Тест был успешно завершён!"
-      fail: "ПРОВАЛ! Пожалуйста, повторите ещё раз."
-    next_button: "Далее"
+    test_passages_helper:
+      success: "Ура! Тест был успешно завершён!"
+      fail: "Увы! Пожалуйста, повторите ещё раз."
 
   tests:
     index:
@@ -63,17 +54,23 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
       rescue_with_question_not_found: "Вопрос не был найден!"
+    navbar:
+      welcome: "Добро пожаловать, %{user}, Гуру!"
+      logout: "Выход"
+      login: "Вход"
+      register: "Регистрация"
 
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
-      all_quesions_number: "Количество Всех Вопросов в Тесте: %{total_questions}"
-      questions_with_correct_answers: "Вопросов с правильными Ответами: %{correct_questions}"
+      correct_answers: "Вы ответили верно на %{total_questions} вопрос"
+      per_cent_correct: "Это %{correct_questions} от общего кол-ва вопросов "
       all_tests: "Все Тесты"
     show:
-      header: "Прохождение %{test_passage_test_title} Теста"
-      no_available_questions: "Нет доступных Вопросов"
-      no_available_answers: "Нет доступных Ответов"
+      header: "Прохождение %{test_title} Теста"
+      question_count: "Всего вопросов в тесте:"
+      current_question: "Номер текущего вопроса:"
+      next: "Далее"
 
   admin:
     nav:

@@ -31,18 +31,11 @@ en:
         body: "Body"
         correct: "Correct"
 
-  questions_helper:
-    create:
-      header: "Create New %{test_title} Question"
-    edit:
-      header: "Edit %{test_title} Question"
-
-  test_passages_helper:
-    current_question: "Current Question"
-    result:
-      success: "SUCCESS! Test was completed!"
-      fail: "FAIL! Please, try again."
-    next_button: "Next"
+    test_passages_helper:
+      result:
+        success: "SUCCESS! Test was completed!"
+        fail: "FAIL! Please, try again."
+      all_tests: "All Tests"
 
   tests:
     index:
@@ -61,17 +54,24 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
       rescue_with_question_not_found: "Question was not found!"
+    navbar:
+      welcome: "Welcome, %{user}, Guru!"
+      logout: "Logout"
+      login: "Login"
+      register: "Register"
+
 
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
-      all_quesions_number: "Number of All Questions in Test: %{total_questions}"
-      questions_with_correct_answers: "Questions with Correct Answers: %{correct_questions}"
       all_tests: "All Tests"
+      correct_answers: "Вы ответили верно на %{total_questions} вопрос"
+      per_cent_correct: "Это %{correct_questions} от общего кол-ва вопросов "
     show:
-      header: "Passing the %{test_passage_test_title} Test"
-      no_available_questions: "There is no available Questions"
-      no_available_answers: "There is no available Answers"
+      header: "Passing the %{test_title} Test"
+      question_count: "Questions Total:"
+      current_question: "Current Question number is:"
+      next: "Next"
 
   admin:
     nav:

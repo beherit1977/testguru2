@@ -1,9 +1,11 @@
-<h1>Passing the  <%= @test_passage.test.title %> Test</h1>
+<h1><%= t('.header', test_title: @test_passage.test.title) %></h1>
 
 <div>
   <p>
-    Всего вопросов в тесте:<%= @test_passage.test.questions.count %> <br>
-    Номер текущего вопроса: <%= @test_passage.question_number %>
+    <%= t('.question_count') %>
+    <%= @test_passage.test.questions.count %> <br>
+    <%= t('.current_question') %>
+    <%= @test_passage.question_number %>
   </p>
 </div>
 
@@ -22,6 +24,6 @@
         <%= b.label %>
       </p>
     <% end %>
-    <%= form.submit 'Next' %>
+    <%= form.submit t('.next') %>
   <% end %>
 </div>

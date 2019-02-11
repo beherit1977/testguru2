@@ -13,6 +13,13 @@ en:
         text: "Question body"
       answer:
         text: "Текст Ответа"
+      user:
+        first_name: "First Name"
+        last_name: "Sirname"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        remember_me: "Remember me"
 
     errors:
       messages:

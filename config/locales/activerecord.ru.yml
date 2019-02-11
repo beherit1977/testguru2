@@ -13,6 +13,13 @@ ru:
         text: "Вопрос"
       answer:
         text: "Текст Ответа"
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электронный адрес"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        remember_me: "Запомнить"
 
     errors:
       messages:

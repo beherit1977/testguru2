@@ -1,19 +1,26 @@
-<h1><%= t('.title') %> :
-  <%= @test.title %>
-</h1>
-
-<p><%= t('.level')%> :
-  <%= @test.level %>
+<h1><%= t('.header') %></h1>
+<p>
+  <strong><%= t('.title')%>:</strong>
+  <%= @test.title %><br>
+  <strong><%= t('.level')%>:</strong>
+  <%= @test.level %><br>
 </p>
-<p>Publication date: <%= @test.created_at.strftime('%Y-%m-%d %H:%M') %></p>
-<p><%= link_to 'New Question', new_admin_test_question_path(@test) %></p>
+
+<p>
+  <%= link_to t('.new_question'), new_admin_test_question_path(test_id: @test.id) %> |
+  <%= link_to t('back'), admin_tests_path %> |
+  <%= link_to t('edit'), edit_admin_test_path(@test) %>
+</p>
+
 
 <table>
   <tr>
     <th><h3><%= t('.questions') %>:</h3> </th>
   </tr>
   <%= render partial: 'admin/questions/question', collection: @test.questions %>
+
+  <% unless @test.questions.present? %>
+    <th colspan="4"><%= t('.no_questions') %></th>
+  <% end %>
 </table>
 
-<p><%= link_to  t('.edit'), edit_admin_test_path(@test) %></p>
-<p><%= link_to t('.back'), admin_tests_path %></p>

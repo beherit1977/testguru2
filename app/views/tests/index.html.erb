@@ -1,14 +1,18 @@
-<h1>Tests Available:</h1>
+<!--<h1><%#= t('.header') %></h1>-->
 
 <table>
   
   <tr>
-    <th><%= t('.table.title') %></th>
-    <th><%= t('.table.level') %></th>
-    <th><%= t('.table.questions') %></th>
-    <th><%= t('.table.actions') %></th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.questions') %></th>
+    <th><%= t('.actions') %></th>
   </tr>
   
   <%= render @tests %>
+
+  <% unless @tests.present? %>
+    <th colspan="6"><%= t('.no_tests') %></th>
+  <% end %>
 
 </table>

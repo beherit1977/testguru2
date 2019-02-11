@@ -1,4 +1,11 @@
 ru:
+  back: "Назад"
+  show: "Показать"
+  edit: "Изменить"
+  delete: "Удалить"
+  confirm: "Вы уверены?"
+  action: "Действие"
+
   helpers:
     submit:
       test:
@@ -37,6 +44,17 @@ ru:
       fail: "ПРОВАЛ! Пожалуйста, повторите ещё раз."
     next_button: "Далее"
 
+  tests:
+    index:
+      header: "Доступные Тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросы"
+      actions: "Действия"
+      no_tests: "Не создано тестов"
+    test:
+      start_button: "Старт"
+
   shared:
     errors:
       header:
@@ -45,18 +63,6 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
       rescue_with_question_not_found: "Вопрос не был найден!"
-
-  tests:
-    index:
-      header: "Доступные Тесты"
-      no_tests_available: "Нет доступных тестов."
-      table:
-        title: "Название"
-        level: "Уровень"
-        questions: "Вопросы"
-        actions: "Действия"
-    test:
-      start_button: "Старт"
 
   test_passages:
     result:
@@ -70,20 +76,24 @@ ru:
       no_available_answers: "Нет доступных Ответов"
 
   admin:
+    nav:
+      admin_panel: "Панель админа"
+      logout: "Выйти"
+      guru: "Гуру"
+      welcome: "Добро пожаловать"
     tests:
       create:
         success: "Тест успешно создан."
       index:
         header: "Доступные Тесты"
-        table:
-          title: "Название"
-          level: "Уровень"
-          questions: "Вопросы"
-          actions: "Действия"
-        no_tests_available: "Нет доступных тестов"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+        no_tests: "Нет доступных тестов"
         new_test: "Новый тест"
       edit:
-        header: "Редактировать %{test_title} Тест"
+        header: "Редактировать Тест %{test_title}"
       new:
         header: "Создать Новый Тест"
       update:
@@ -91,22 +101,22 @@ ru:
       destroy:
         success: "Тест успешно удалён!"
       show:
+        header: "Тест"
         title: "Название"
         level: "Уровень"
         author: "Автор"
         questions: "Вопросы"
-
-    questions:
-      list:
-        table:
-          body: "Список вопросов"
-          actions: "Действия"
         new_question: "Новый вопрос"
-        no_questions_available: "Нет доступных вопросов."
+        no_questions: "В этом тесте еще нет вопросов"
+    questions:
+      new:
+        header: "Вопрос для %{test_title}"
       show:
-        header: "%{question_test_title} Вопрос"
+        header: " Вопрос для %{test_title}"
         answers: "Ответы"
         new_answer: "Новый ответ"
+      edit:
+        header: "Изменить вопрос для %{test_title}"
       create:
         success: "Вопрос был успешно создан!"
       update:
@@ -114,10 +124,12 @@ ru:
       destroy:
         success: "Вопрос был успешно удалён!"
     answers:
-      edit:
-        header: "Редактировать Ответ"
+      correct: "Правильный"
       new:
-        header: "Новый Ответ"
+        header: "Новый ответ для %{question_title}"
+      edit:
+        header: "Редактировать ответ для %{question_title}"
+
       show:
         header: "Вопрос"
         answer: "Ответ"
@@ -128,6 +140,7 @@ ru:
         success: "Ответ был успешно обновлён!"
       destroy:
         success: "Ответ был успешно удалён!"
+
 
   tests_mailer:
     completed_test:

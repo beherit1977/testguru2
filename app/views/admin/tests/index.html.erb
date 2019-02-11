@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
-<h1>Tests Available:</h1>
+<h1><%= t('.header') %></h1>
 
 <p>
   <%= link_to t('.new_test'), new_admin_test_path %>
 </p>
 
-   <% if @tests.present? %>
 <table>
 
   <tr>
-    <th><%= t('.table.title') %></th>
-    <th><%= t('.table.level') %></th>
-    <th><%= t('.table.questions') %></th>
-    <th colspan="4"><%= t('.table.actions') %></th>
+    <th><%= t('.title') %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.questions') %></th>
+    <th colspan="4"><%= t('.actions') %></th>
   </tr>
   
   <%= render @tests %>
 
-  <% else %>
-  <p>There is no tests available.</p>
-  <p><%= t('.no_tests_available') %></p>
+  <% unless @tests.present? %>
+    <th colspan="8"><%= t('.no_tests') %></th>
   <% end %>
 
 </table>

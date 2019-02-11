@@ -2,11 +2,17 @@ ru:
   activerecord:
     models:
       test: "Тест"
+      question: "Вопрос"
+      answer: "Ответ"
 
     attributes:
       test:
         title: "Название"
         category: "Категория"
+      question:
+        text: "Вопрос"
+      answer:
+        text: "Текст Ответа"
 
     errors:
       messages:

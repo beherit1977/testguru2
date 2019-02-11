@@ -1,4 +1,11 @@
 en:
+  back: "Назад"
+  show: "Показать"
+  edit: "Изменить"
+  delete: "Удалить"
+  confirm: "Вы уверены?"
+  action: "Действие"
+
   helpers:
     submit:
       test:
@@ -37,24 +44,23 @@ en:
       fail: "FAIL! Please, try again."
     next_button: "Next"
 
+  tests:
+    index:
+      header: "Awailable Tests"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+      actions: "Actions"
+      no_tests: "No tests created"
+    test:
+      start_button: "Start"
+
   shared:
     errors:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
       rescue_with_question_not_found: "Question was not found!"
-
-  tests:
-    index:
-      header: "Tricky Tests"
-      no_tests_available: "There is no tests available."
-      table:
-        title: "Title"
-        level: "Level"
-        questions: "Questions"
-        actions: "Actions"
-    test:
-      start_button: "Start"
 
   test_passages:
     result:
@@ -68,17 +74,21 @@ en:
       no_available_answers: "There is no available Answers"
 
   admin:
+    nav:
+      admin_panel: "Admin panel"
+      logout: "Logout"
+      guru: "Guru"
+      welcome: "Welcome"
     tests:
       create:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
-        table:
-          title: "Title"
-          level: "Level"
-          questions: "Questions"
-          actions: "Actions"
-        no_tests_available: "There is no tests available."
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+        no_tests: "There are no tests available."
         new_test: "New test"
       edit:
         header: "Edit %{test_title} Test"
@@ -89,22 +99,23 @@ en:
       destroy:
         success: "Test successfully deleted!"
       show:
+        header: "Test"
         title: "Title"
         level: "Level"
         author: "Author"
         questions: "Questions"
+        new_question: "New question"
+        no_questions: "No questions available"
 
     questions:
-      list:
-        table:
-          body: "Body"
-          actions: "Actions"
-        new_question: "New question"
-        no_questions_available: "There is no questions available."
+      new:
+        header: "New question for %{test_title}"
       show:
-        header: "%{question_test_title} Question"
+        header: "Question for %{test_title} "
         answers: "Answers"
         new_answer: "New answer"
+      edit:
+        header: "Update question for %{test_title}"
       create:
         success: "Question was successfully created!"
       update:
@@ -112,10 +123,11 @@ en:
       destroy:
         success: "Question was successfully deleted!"
     answers:
-      edit:
-        header: "Edit Answer"
+      correct: "Correct!"
       new:
-        header: "New Answer"
+        header: "New answer for %{question_title}"
+        edit:
+          header: "Edit answer for %{question_title}"
       show:
         header: "Question"
         answer: "Answer"
@@ -130,5 +142,3 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
-  © 2019 GitHub, Inc.
-

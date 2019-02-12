@@ -59,6 +59,7 @@ en:
       logout: "Logout"
       login: "Login"
       register: "Register"
+      admin_nav: "Admin Panel"
 
 
   test_passages:
@@ -75,7 +76,7 @@ en:
 
   admin:
     nav:
-      admin_panel: "Admin panel"
+      admin_panel: "TestGuru: Admin panel"
       logout: "Logout"
       guru: "Guru"
       welcome: "Welcome"

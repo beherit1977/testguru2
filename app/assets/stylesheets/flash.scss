@@ -1,14 +1,7 @@
-.flash {
-  border: 2px solid;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.flash.alert  {
-  border-color: #ef2727;
-}
-
-.flash.notice  {
+.type_flash_notice {
   border-color: #3c85e0;
+}
+
+.type_flash_alert {
+  border-color: #ef2727
 }

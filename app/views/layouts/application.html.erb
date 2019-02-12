@@ -16,9 +16,7 @@
   <%= render 'shared/navbar' %>
 
   <div class="container">
-    <%= show_flash :info %>
-    <%= show_flash :alert %>
-    <%= show_flash :notice %>
+    <%= render 'shared/flash' %>
 
     <%= yield %>
   </div>

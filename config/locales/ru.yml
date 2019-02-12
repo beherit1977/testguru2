@@ -59,6 +59,7 @@ ru:
       logout: "Выход"
       login: "Вход"
       register: "Регистрация"
+      admin_nav: "Панель админа"
 
   test_passages:
     result:
@@ -74,7 +75,7 @@ ru:
 
   admin:
     nav:
-      admin_panel: "Панель админа"
+      admin_panel: "TestGuru: Панель админа"
       logout: "Выйти"
       guru: "Гуру"
       welcome: "Добро пожаловать"

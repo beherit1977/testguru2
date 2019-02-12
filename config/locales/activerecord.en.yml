@@ -1,0 +1,27 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      question: "Question"
+      answer: "Answer"
+
+    attributes:
+      test:
+        title: "Title"
+        category: "Category"
+      question:
+        text: "Question body"
+      answer:
+        text: "Текст Ответа"
+      user:
+        first_name: "First Name"
+        last_name: "Sirname"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        remember_me: "Remember me"
+
+    errors:
+      messages:
+        blank: "Can't be blank"
+        required: "must exist"

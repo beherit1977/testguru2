@@ -1,18 +1,20 @@
-<h1><%= t('.header') %></h1>
+<h1 class="text-center font-weight-normal"><%= t('.header') %></h1>
 
-<table>
+  <div class="row mt-3">
+    <table class="table table-hover table-bordered">
   
-  <tr>
-    <th><%= t('.title') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.questions') %></th>
-    <th><%= t('.actions') %></th>
-  </tr>
+      <tr>
+        <th><%= t('.title') %></th>
+        <th><%= t('.level') %></th>
+        <th><%= t('.questions') %></th>
+        <th><%= t('.actions') %></th>
+      </tr>
   
-  <%= render @tests %>
+       <%= render @tests %>
 
-  <% unless @tests.present? %>
-    <th colspan="6"><%= t('.no_tests') %></th>
-  <% end %>
+       <% unless @tests.present? %>
+        <th colspan="6"><%= t('.no_tests') %></th>
+       <% end %>
 
-</table>
+     </table>
+  </div>

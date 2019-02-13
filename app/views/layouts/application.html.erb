@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <title>TestGuru</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -11,15 +14,12 @@
 
 <body>
   <%= render 'shared/navbar' %>
-</br>
-</br>
 
-  <%= show_flash :info %>
-  <%= show_flash :alert %>
-  <%= show_flash :notice %>
+  <div class="container">
+    <%= render 'shared/flash' %>
 
-<%= yield %>
-
-<%= render 'shared/footer' %>
+    <%= yield %>
+  </div>
+   <%= render 'shared/footer' %>
 </body>
 </html>

@@ -23,5 +23,7 @@
       </p>
     <% end %>
     <%= form.submit t('.next'),  class: "btn btn-outline-dark" %>
+    <%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %>
+    <%= form.submit t('.next'),  class: "btn btn-outline-dark"  %>
   <% end %>
 </div>

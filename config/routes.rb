@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :gists
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_id: :login, sign_out: :logout },
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
   end
 
   resources :test_passages, only: %i[show update] do
-    get :result, on: :member
+    member do
+      get :result
+      post :gist
+    end
   end
 
   namespace :admin do
@@ -20,4 +24,5 @@ Rails.application.routes.draw do
       end
     end
   end
+  get 'gists/all'
 end

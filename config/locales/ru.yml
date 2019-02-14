@@ -72,6 +72,9 @@ ru:
       question_count: "Всего вопросов в тесте:"
       current_question: "Номер текущего вопроса:"
       next: "Далее"
+    gist:
+      success: "Gist успешно сохранён! Ссылка: %{url}"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     nav:

@@ -35,6 +35,8 @@ gem 'rails-i18n', '~> 5.1'
 gem 'bootstrap', '~> 4.3.0'
 gem 'jquery-rails'
 
+#NETWORKING
+gem 'faraday'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

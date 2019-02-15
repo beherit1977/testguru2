@@ -72,6 +72,9 @@ ru:
       question_count: "Всего вопросов в тесте:"
       current_question: "Номер текущего вопроса:"
       next: "Далее"
+    gist:
+      success: "Gist успешно сохранен!"
+      failed: "Во время сохранения gist произошла ошибка"
 
   admin:
     nav:
@@ -138,7 +141,6 @@ ru:
         success: "Ответ был успешно обновлён!"
       destroy:
         success: "Ответ был успешно удалён!"
-
 
   tests_mailer:
     completed_test:

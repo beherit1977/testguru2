@@ -73,6 +73,9 @@ en:
       question_count: "Questions Total:"
       current_question: "Current Question number is:"
       next: "Next"
+    gist:
+      success: "Gist saved successfully!"
+      failed: "An error occurred while saving a gist"
 
   admin:
     nav:

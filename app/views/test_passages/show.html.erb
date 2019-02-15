@@ -4,7 +4,9 @@
   <p>
     <%= t('.question_count') %>
     <%= @test_passage.test.questions.count %> <br>
-    <%= t('.current_question') %>
+    <p>
+      <b><%= t('.current_question') %></b>
+    </p>
     <%= @test_passage.question_number %>
   </p>
 
@@ -22,6 +24,7 @@
         <%= b.label %>
       </p>
     <% end %>
-    <%= form.submit t('.next'),  class: "btn btn-outline-dark" %>
+    <p><%= link_to 'Сохранить вопрос в Gist', gist_test_passage_path(@test_passage), method: :post %></p>
+    <p><%= form.submit t('.next'),  class: "btn btn-outline-dark" %></p>
   <% end %>
 </div>

@@ -60,6 +60,14 @@ ru:
       login: "Вход"
       register: "Регистрация"
       admin_nav: "Панель админа"
+  
+  gists:
+    index:
+      header: "Проблемные вопросы"
+      admin_test_view: "Тесты"
+      question: "Вопрос"
+      user_email: "Email пользователя"
+      no_gist: "Вопросов нет"  
 
   test_passages:
     result:
@@ -73,7 +81,7 @@ ru:
       current_question: "Номер текущего вопроса:"
       next: "Далее"
     gist:
-      success: "Gist успешно сохранен!"
+      success: " %{url} успешно сохранен!"
       failed: "Во время сохранения gist произошла ошибка"
 
   admin:
@@ -145,3 +153,6 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+  services:
+    gist_question_service:
+      description: "Вопрос теста: %{title} сайта TestGuru"

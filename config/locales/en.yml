@@ -60,7 +60,14 @@ en:
       login: "Login"
       register: "Register"
       admin_nav: "Admin Panel"
-
+  
+  gists:
+    index:
+      header: "Gisted questions"
+      admin_test_view: "Tests"
+      question: "Question"
+      user_email: "User Email"
+      no_gist: "No questions gisted" 
 
   test_passages:
     result:
@@ -74,7 +81,7 @@ en:
       current_question: "Current Question number is:"
       next: "Next"
     gist:
-      success: "Gist saved successfully!"
+      success: " %{url} successfully saved"
       failed: "An error occurred while saving a gist"
 
   admin:
@@ -146,3 +153,6 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+  services:
+    gist_question_service:
+      description: "Test question: %{title} from TestGuru"

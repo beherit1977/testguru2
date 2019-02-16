@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to gist.question.text[0..24],
+          admin_question_path(gist.question)%></td>
+  <td><%= link_to gist.gist_url,
+          "https://gist.github.com/beherit1977/#{gist.gist_url}"%></td>
+  <td><%= link_to nil, gist.user.email %></td>
+</tr>

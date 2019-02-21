@@ -6,9 +6,11 @@ document.addEventListener('turbolinks:load', function() {
 
 function sortRowsByTitle() {
     var table = document.querySelector('table');
+    // NodeList
     var rows = table.querySelectorAll('tr');
     var sortedRows = [];
 
+    // select all rows except header
     for (var i = 1; i < rows.length; i++) {
         sortedRows.push(rows[i]);
     }

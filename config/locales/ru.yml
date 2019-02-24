@@ -117,6 +117,8 @@ ru:
         questions: "Вопросы"
         new_question: "Новый вопрос"
         no_questions: "В этом тесте еще нет вопросов"
+      form_inline:
+        submit: "OK"
     questions:
       new:
         header: "Вопрос для %{test_title}"

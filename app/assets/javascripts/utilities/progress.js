@@ -1,16 +1,8 @@
-document.addEventListener('turbolinks:load', function() {
-
-    var progress = document.querySelector('.progress');
-
-    if (progress) {
-
-        var amount =  progress.dataset.amount;
-        var completed =  progress.dataset.completed;
-
-        var width = Math.round(completed/(amount/100)) + '%';
-
-        var progressBar = document.querySelector('.progress-bar');
-        progressBar.style.width = width;
-        progressBar.textContent = width;
+document.addEventListener('turbolinks:load', function () {
+    var progress_bar = document.querySelector('.progress-bar');
+    
+    if (progress_bar) {
+        var progress_percent = progress_bar.dataset.percent;
+        progress_bar.style.width=progress_percent + '%';
     }
 })

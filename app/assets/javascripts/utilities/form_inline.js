@@ -8,11 +8,10 @@ document.addEventListener('turbolinks:load', function() {
         }
         var errors = document.querySelector('.resource-errors');
 
-        if (errors) {
+        if (controls.length && errors) {
             var resourceId = errors.dataset.resourceId;
             formInLineHandler(resourceId);
         }
-
     }
 })
 
@@ -37,5 +36,4 @@ function formInLineHandler(testId) {
         formInline.classList.add('hide');
         link.textContent = 'Edit';
     }
-
 }

@@ -1,21 +1,23 @@
 <h1><%= t('.header', test_title: @test_passage.test.title) %></h1>
 
 <div class="border rounded p-3">
-  <%= progress(@test_passage) %>
+  <p>
+    <%= t('.question_count') %>
+    <%= @test_passage.test.questions.count %> <br>
 
-  <%= content_tag :div, class: "progress",
-                  data: { completed: @test_passage.amount_completed_questions,
-                          amount: @test_passage.amount_questions } do %>
-    <div class="progress-bar" role="progressbar" aria-valuenow="20"
-         aria-valuemin="0" aria-valuemax="100" style="width:0%">
-      0%
-    </div>
-  <% end %>
+      <b><%= t('.current_question') %></b>
+    <%= @test_passage.question_number %>  
+    
+    <%= content_tag :div,
+      content_tag(:span, "#{@test_passage.current_progress_percent(@test_passage)} %", class: "text-align: center;" ),
+      class: 'progress-bar',
+      role: 'progressbar',
+      data: { percent: @test_passage.current_progress_percent(@test_passage)} %>
+  </p>
 
   <h2>
     <%= @test_passage.current_question.text %>
   </h2>
-
 
   <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
   

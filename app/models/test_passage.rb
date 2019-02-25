@@ -20,13 +20,18 @@ class TestPassage < ApplicationRecord
   def question_counter
     test.questions.order(:id).where('id < ?', current_question.id).count
   end
-
+  
+  #overall percent of correct answers
   def current_percent
     (correct_questions.to_f/test.questions.count*100).round(2)
   end
   
+  def current_progress_percent(test_passage)
+    (100 / test_passage.test.questions.count) * questions_left
+  end
+  
   def question_number
-    test.questions.index(current_question) + 1
+    self.question_counter + 1
   end
   
   def success_test?
@@ -46,7 +51,8 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    (correct_answers.count == correct_answers.where(id: answer_ids).count) && 
+    correct_answers.count == answer_ids.count
   end
 
   def correct_answers
@@ -55,5 +61,9 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+  
+  def questions_left
+    test.questions.order(:id).where('id < ?', current_question.id).count
   end
 end

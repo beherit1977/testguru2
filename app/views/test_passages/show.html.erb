@@ -4,17 +4,20 @@
   <p>
     <%= t('.question_count') %>
     <%= @test_passage.test.questions.count %> <br>
-    <p>
-      <b><%= t('.current_question') %></b>
-    </p>
-    <%= @test_passage.question_number %>
-  </p>
 
+      <b><%= t('.current_question') %></b>
+    <%= @test_passage.question_number %>  
+    
+    <%= content_tag :div,
+      content_tag(:span, "#{@test_passage.current_progress_percent(@test_passage)} %", class: "text-align: center;" ),
+      class: 'progress-bar',
+      role: 'progressbar',
+      data: { percent: @test_passage.current_progress_percent(@test_passage)} %>
+  </p>
 
   <h2>
     <%= @test_passage.current_question.text %>
   </h2>
-
 
   <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
   

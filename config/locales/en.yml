@@ -117,6 +117,8 @@ en:
         questions: "Questions"
         new_question: "New question"
         no_questions: "No questions available"
+      form_inline:
+        submit: "OK"
 
     questions:
       new:

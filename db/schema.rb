@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_205153) do
+ActiveRecord::Schema.define(version: 2019_02_26_184541) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string "text", null: false
@@ -19,6 +22,25 @@ ActiveRecord::Schema.define(version: 2019_02_15_205153) do
     t.datetime "updated_at", null: false
     t.integer "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title"
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "rule_name", null: false
+    t.string "rule_value"
+    t.index ["rule_name", "rule_value"], name: "index_badges_on_rule_name_and_rule_value", unique: true
+  end
+
+  create_table "badges_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_badges_users_on_badge_id"
+    t.index ["user_id"], name: "index_badges_users_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -69,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_02_15_205153) do
     t.integer "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,4 +120,5 @@ ActiveRecord::Schema.define(version: 2019_02_15_205153) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "badges_users", "badges"
 end

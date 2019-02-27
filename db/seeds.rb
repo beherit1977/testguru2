@@ -20,14 +20,19 @@ TestPassage.create! [{user_id: users[0].id, test_id: tests[0].id},
 
 questions = Question.create! [{ text: 'Что такое HTML', test_id: tests[0].id },
                               { text: 'Что такое PHP', test_id: tests[1].id },
-                              { text: 'Ruby question #1', test_id: tests[2].id }]
+                              { text: 'Ruby question #1', test_id: tests[2].id },
+                              { text: 'Вопрос 2', test_id: tests[0].id },
+                              { text: 'Вопрос 3', test_id: tests[0].id }]
 
 answers = Answer.create! [{ text: 'HTML язык разметки', correct: true, question_id: questions[0].id},
                           { text: 'HTML язык програмирования', correct: false, question_id: questions[0].id },
                           { text: 'HTML язык аборигенов', correct: false, question_id: questions[1].id },
+                          { text: 'Ответ', correct: true, question_id: questions[3].id },
+                          { text: 'Ответ', correct: true, question_id: questions[4].id },
                           { text: 'PHP язык програмирования', correct: true, question_id: questions[1].id },
                           { text: 'PHP это еда', correct: false, question_id: questions[2].id },
-                          { text: 'PHP это ад', correct: false, question_id: questions[2].id }]
+                          { text: 'PHP это ад', correct: false, question_id: questions[2].id },
+                          ]
 
 TestPassage.create(test_id: tests[0].id, user_id: users[0].id)
 TestPassage.create(test_id: tests[1].id, user_id: users[1].id)

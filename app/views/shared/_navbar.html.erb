@@ -13,5 +13,5 @@
   </span>
 </nav>
 
-  <%= link_to t('links.feedback'), new_feedback_path %>
+  <%= link_to t('links.feedback'), new_feedback_path if current_user%>
 

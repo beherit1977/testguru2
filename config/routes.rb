@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :tests, only: :index do
     post :start, on: :member
   end
+  
+  resources :feedbacks, only: %i[new create]
 
   resources :test_passages, only: %i[show update] do
     member do

@@ -1,4 +1,4 @@
 class Feedback < ApplicationRecord
-  belongs_to :user, optional: true
-  validates :email, :body, presence: true
+  belongs_to :user
+  validates :body, presence: true
 end

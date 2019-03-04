@@ -6,7 +6,8 @@ Test.delete_all
 User.delete_all
 
 users = User.create! [{ first_name: 'a', last_name: 'b', email: 'a@a.a', password: '111111', confirmed_at: Time.now },
-                      { first_name: 'z', last_name: 'z', email: 'z@z.z', type: "Admin", password: '111111', confirmed_at: Time.now }]
+                      { first_name: 'z', last_name: 'z', email: 'z@z.z', type: "Admin", password: '111111', confirmed_at: Time.now },
+                      { first_name: 's', last_name: 's', email: 'beherit1977@gmail.com', type: "Admin", password: '111111', confirmed_at: Time.now }]
 
 categories = Category.create! [{ title: 'Frontend', level: 1 }, { title: 'Backend', level: 2 }, { title: 'Full_stack', level: 2} ]
 

@@ -36,6 +36,10 @@ en:
         success: "SUCCESS! Test was completed!"
         fail: "FAIL! Please, try again."
       all_tests: "All Tests"
+      
+  links:
+    feedback: "Give us your Feedback:"
+    send: "Send"
 
   tests:
     index:
@@ -158,3 +162,11 @@ en:
   services:
     gist_question_service:
       description: "Test question: %{title} from TestGuru"
+  
+  mail:
+    feedback:
+      sended: "Your feedback was sent"
+      error: "You should feel in the feedback's form"
+      
+  feedbacks:
+    header: "Your Feedback"

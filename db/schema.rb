@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_205153) do
+ActiveRecord::Schema.define(version: 2019_02_28_120841) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string "text", null: false
@@ -28,6 +31,14 @@ ActiveRecord::Schema.define(version: 2019_02_15_205153) do
     t.datetime "updated_at", null: false
     t.integer "test_id"
     t.index ["test_id"], name: "index_categories_on_test_id"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -49,8 +60,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_205153) do
   end
 
   create_table "test_passages", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "test_id"
+    t.integer "user_id", null: false
+    t.integer "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_question_id"
@@ -97,4 +108,5 @@ ActiveRecord::Schema.define(version: 2019_02_15_205153) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "feedbacks", "users"
 end

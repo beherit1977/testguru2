@@ -1,0 +1,19 @@
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with model: @feedback, local: true do |form| %>
+      <%= render 'shared/errors', resource: @feedback %>
+      <fieldset>
+        <h3><%= @feedback.user.first_name %> <%= @feedback.user.last_name %></h3>
+        <div class="field">
+          <%= form.text_area :body, class: 'mt-3 mb-3 feedback border-primary'%>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <div class="field">
+          <%= form.submit t('links.send'), class: 'btn btn-primary' %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

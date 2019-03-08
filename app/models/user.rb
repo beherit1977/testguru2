@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
   has_many :gists, dependent: :destroy
+  has_many :author_badges, class_name: 'Badge', foreign_key: :author_id,
+           dependent: :nullify
+  has_many :badges, through: :personal_badges
 
   def admin?
     self.is_a?(Admin)

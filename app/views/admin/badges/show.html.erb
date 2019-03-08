@@ -1,0 +1,27 @@
+<h1><%= t('.header') %></h1>
+
+<p>
+  <%= link_to t('.badges'), admin_badges_path, class: 'btn btn-primary' %>
+</p>
+
+<p>
+  <strong><%= t('.name')%>:</strong>
+  <%= @badge.name %>
+</p>
+
+<p>
+  <strong>Description</strong>
+  <%= @badge.description %>
+</p>
+
+<p>
+  <strong>Rule type</strong>
+  <%= @badge.rule_type %>
+</p>
+
+<p>
+  <strong>Rule value</strong>
+  <%= @badge.rule_value %>
+</p>
+
+<img src=<%= @badge.image_path %> height="100" width="100">

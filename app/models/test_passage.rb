@@ -1,12 +1,20 @@
 class TestPassage < ApplicationRecord
+  
+  SUCCESS_PASSAGE = 85
+  
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
   
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
+  before_save :check_successful
   
-  SUCCESS_PASSAGE = 85
+  scope :by_category, -> (category) { joins(:test).
+                                            where(tests: {category: category}) }
+
+  scope :by_level, -> (level) { joins(:test).
+                                      where(tests: {level: level}) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -67,5 +75,9 @@ class TestPassage < ApplicationRecord
   
   def questions_left
     test.questions.order(:id).where('id < ?', current_question.id).count
+  end
+  
+  def check_successful
+    self.success = completed? && success_test?
   end
 end

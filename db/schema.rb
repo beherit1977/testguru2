@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_120841) do
+ActiveRecord::Schema.define(version: 2019_03_07_215841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2019_02_28_120841) do
     t.datetime "updated_at", null: false
     t.integer "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description"
+    t.string "rule_type", null: false
+    t.string "rule_value", null: false
+    t.string "image_path"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_badges_on_author_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -49,6 +61,15 @@ ActiveRecord::Schema.define(version: 2019_02_28_120841) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
+  end
+
+  create_table "personal_user_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_personal_user_badges_on_badge_id"
+    t.index ["user_id"], name: "index_personal_user_badges_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -108,5 +129,8 @@ ActiveRecord::Schema.define(version: 2019_02_28_120841) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "badges", "users", column: "author_id"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "personal_user_badges", "badges"
+  add_foreign_key "personal_user_badges", "users"
 end

@@ -49,6 +49,7 @@ en:
       questions: "Questions"
       actions: "Actions"
       no_tests: "No tests created"
+      badges: "Badges"
     test:
       start_button: "Start"
 
@@ -87,6 +88,16 @@ en:
     gist:
       success: " %{url} successfully saved"
       failed: "An error occurred while saving a gist"
+      
+  personal_badges:
+    index:
+      header: "Badges"
+      test_view: "Tests"
+      personal_badges: "Personal badges"
+      name: "Name"
+      description: "Description"
+      no_badges: "No badges"
+      all_badges: "All types of badges"      
 
   admin:
     nav:
@@ -105,6 +116,7 @@ en:
         actions: "Actions"
         no_tests: "There are no tests available."
         new_test: "New test"
+        badges: "Badges"
       edit:
         header: "Edit %{test_title} Test"
       new:
@@ -123,6 +135,26 @@ en:
         no_questions: "No questions available"
       form_inline:
         submit: "OK"
+    badges:
+      index:
+        header: "Badges"
+        new_badge: "Create badges"
+        no_badges: "No badges"
+        admin_test_view: "Tests"
+        name: "Name"
+      form:
+        first_successful_attempt: "first successful attempt"
+        category: "category"
+        level: "level"  
+      new:
+        header: "Create badge"
+        badges: "Badges"  
+      show:
+        header: "Badge"
+        name: "Name"
+        badges: "Badges"
+      create:
+        success: "Badge was successfully created."      
 
     questions:
       new:

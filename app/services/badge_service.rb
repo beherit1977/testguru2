@@ -17,8 +17,6 @@ class BadgeService
   end  
     
   def reward_by_category?(title)
-    p User.all
-    p title
     category = Category.find_by(title: title)
     success_tests.map(&:test_id).uniq.count == category.tests.count
   end

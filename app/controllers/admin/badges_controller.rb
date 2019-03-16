@@ -1,5 +1,6 @@
-class Admin::BadgesController < ApplicationController
+class Admin::BadgesController < Admin::BaseController
 
+  before_action :authenticate_user!
   before_action :find_badge, only: %i[show update destroy]
 
   def index
@@ -19,7 +20,6 @@ class Admin::BadgesController < ApplicationController
 
   def create
     @badge = Badge.new(badge_params)
-    # @badge = current_user.author_badges.new(badge_params)
 
     if @badge.save
       redirect_to [:admin, @badge], notice: t('.success') 

@@ -32,9 +32,10 @@ class TestPassage < ApplicationRecord
   
   #overall percent of correct questions if answers to the questions present
   def current_percent
-    questions_with_answers = test.questions.count {|q| q.answers.present?}
-    
-    (correct_questions.to_f/questions_with_answers*100).round(2)
+    (self.correct_questions.to_f / self.test.questions.count) * 100
+
+    # questions_with_answers = test.questions.count {|q| q.answers.present?}
+    # (correct_questions.to_f/questions_with_answers*100).round(2)
   end
   
   def current_progress_percent(test_passage)
@@ -47,6 +48,10 @@ class TestPassage < ApplicationRecord
   
   def success_test?
   	current_percent >= SUCCESS_PASSAGE
+  end
+  
+  def check_successful
+    self.completed? && self.success_test?
   end
 
   private
@@ -75,9 +80,5 @@ class TestPassage < ApplicationRecord
   
   def questions_left
     test.questions.order(:id).where('id < ?', current_question.id).count
-  end
-  
-  def check_successful
-    self.success = completed? && success_test?
   end
 end

@@ -18,7 +18,8 @@ class Admin::BadgesController < ApplicationController
   end
 
   def create
-    @badge = current_user.author_badges.new(badge_params)
+    @badge = Badge.new(badge_params)
+    # @badge = current_user.author_badges.new(badge_params)
 
     if @badge.save
       redirect_to [:admin, @badge], notice: t('.success') 
@@ -47,11 +48,7 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    params.require(:badge).permit(:name, :description, :rule_type, 
+    params.require(:badge).permit(:name, :rule_type, 
                                   :rule_value, :image_path)
   end  
-
-  def find_badge
-    @badge = Badge.find(params[:id])
-  end
 end

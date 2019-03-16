@@ -1,5 +1,6 @@
 class Badge < ApplicationRecord
-  belongs_to :author, class_name: 'User'
+  
+  RULE_TYPES = %w[first_time_succeed category level].freeze
 
   has_many :personal_user_badges, dependent: :destroy
   has_many :users, through: :personal_user_badges

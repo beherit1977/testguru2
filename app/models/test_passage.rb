@@ -1,12 +1,20 @@
 class TestPassage < ApplicationRecord
+  
+  SUCCESS_PASSAGE = 85
+  
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
   
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
+  before_save :check_successful
   
-  SUCCESS_PASSAGE = 85
+  scope :by_category, -> (category) { joins(:test).
+                                            where(tests: {category: category}) }
+
+  scope :by_level, -> (level) { joins(:test).
+                                      where(tests: {level: level}) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -24,9 +32,10 @@ class TestPassage < ApplicationRecord
   
   #overall percent of correct questions if answers to the questions present
   def current_percent
-    questions_with_answers = test.questions.count {|q| q.answers.present?}
-    
-    (correct_questions.to_f/questions_with_answers*100).round(2)
+    (self.correct_questions.to_f / self.test.questions.count) * 100
+
+    # questions_with_answers = test.questions.count {|q| q.answers.present?}
+    # (correct_questions.to_f/questions_with_answers*100).round(2)
   end
   
   def current_progress_percent(test_passage)
@@ -39,6 +48,10 @@ class TestPassage < ApplicationRecord
   
   def success_test?
   	current_percent >= SUCCESS_PASSAGE
+  end
+  
+  def check_successful
+    self.completed? && self.success_test?
   end
 
   private

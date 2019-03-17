@@ -1,0 +1,2 @@
+module PersonalUserBadgesHelper
+end

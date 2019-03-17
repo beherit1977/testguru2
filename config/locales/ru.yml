@@ -47,6 +47,7 @@ ru:
       questions: "Вопросы"
       actions: "Действия"
       no_tests: "Не создано тестов"
+      badges: "Награды"
     test:
       start_button: "Старт"
 
@@ -87,6 +88,16 @@ ru:
     gist:
       success: " %{url} успешно сохранен!"
       failed: "Во время сохранения gist произошла ошибка"
+      
+  personal_badges:
+    index:
+      header: "Список наград"
+      test_view: "Тесты"
+      personal_badges: "Личные награды"
+      name: "Имя"
+      description: "Описание"
+      no_badges: "Нет наград"
+      all_badges: "Существующие виды наград"    
 
   admin:
     nav:
@@ -105,6 +116,7 @@ ru:
         actions: "Действия"
         no_tests: "Нет доступных тестов"
         new_test: "Новый тест"
+        badges: "Награды"
       edit:
         header: "Редактировать Тест %{test_title}"
       new:
@@ -155,6 +167,27 @@ ru:
         success: "Ответ был успешно обновлён!"
       destroy:
         success: "Ответ был успешно удалён!"
+    
+    badges:
+      index:
+        header: "Список наград"
+        new_badge: "Создать награду"
+        no_badges: "Нет наград"
+        admin_test_view: "Тесты"
+        name: "Название"
+      form:
+        first_successful_attempt: "с первой удачной попытки"
+        category: "определенная категория"
+        level: "определенный уровень"     
+      new:
+        header: "Создание новой награды"
+        badges: "Награды"
+      show:
+        header: "Награда"
+        name: "Название"
+        badges: "Награды"            
+      create:
+        success: "Награда успешно создана."      
 
   tests_mailer:
     completed_test:

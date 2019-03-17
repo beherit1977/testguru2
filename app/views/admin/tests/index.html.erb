@@ -3,6 +3,7 @@
 <div>
   <%= link_to t('.new_test'), new_admin_test_path  %>
   <%= link_to 'Gists', admin_gists_path, class: 'btn btn-primary' %>
+  <%= link_to t('.badges'), admin_badges_path, class: 'btn btn-primary' %>
 </div>
 <%= render 'shared/errors', resource: @test %>
   <div class="table-responsive">

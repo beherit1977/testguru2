@@ -10,8 +10,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
-
+    @test_passage.time_remaning
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       
@@ -36,7 +35,6 @@ class TestPassagesController < ApplicationController
       end
 
     redirect_to @test_passage, flash_options
-
   end
 
   private

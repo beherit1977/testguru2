@@ -4,6 +4,11 @@
   <p>
     <%= t('.question_count') %>
     <%= @test_passage.test.questions.count %> <br>
+  <div>
+    <% if @test_passage.test.timer_exists? %>
+      <%= t('.timer') %> <%= content_tag :span, '', class: 'timer', data: { timer: @test_passage.time_left } %>
+    <% end %>
+  </div>
 
       <b><%= t('.current_question') %></b>
     <%= @test_passage.question_number %>  

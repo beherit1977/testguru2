@@ -32,10 +32,10 @@ class TestPassage < ApplicationRecord
   
   #overall percent of correct questions if answers to the questions present
   def current_percent
-    (self.correct_questions.to_f / self.test.questions.count) * 100
+    # (self.correct_questions.to_f / self.test.questions.count) * 100
 
-    # questions_with_answers = test.questions.count {|q| q.answers.present?}
-    # (correct_questions.to_f/questions_with_answers*100).round(2)
+    questions_with_answers = test.questions.count {|q| q.answers.present?}
+    (correct_questions.to_f/questions_with_answers*100).round(2)
   end
   
   def current_progress_percent(test_passage)
@@ -66,19 +66,7 @@ class TestPassage < ApplicationRecord
     expires_at < Time.current
   end
 
-  def time_remaning
-    if check_timer
-      stop!
-    else
-      accept!(params[:answer_ids])
-    end
-  end
-
   private
-
-  def check_timer
-    test.timer_exists? && time_over?
-  end
 
   def before_validation_set_first_question
     if test.persisted?

@@ -76,7 +76,7 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершен!"
+      header: "Тест %{title} завершен!"
       correct_answers: "Вы ответили верно на %{total_questions} вопрос"
       per_cent_correct: "Это %{correct_questions} от общего кол-ва вопросов "
       all_tests: "Все Тесты"

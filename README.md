@@ -1,35 +1,32 @@
-# README
+# TestGuru
 
-TestGuru
-Приложение для создания, управления и выполнения различных тестов. Тесты с вопросами и вариантами ответов.
+An app for creating, managing and executing different tests with questions and answers to them.
 
-Основные возможности:
+Main features:
 
+* Creating and managing tests
 
-- Создание тестов и управление ими
+* Authentication
 
-- Аутентификация
+* Basic access control
 
-- Базовое разграничение прав доступа
+* Executing tests
 
--  Выполнение тестов
+2 user groups:
 
-- Публикация результатов в соцсети
+- 1 group is choosing tests and runs them,
+- 2 group - admins who create tests and manages them
 
-2 группы пользователей:
+### Objects list
 
-- 1 группа пользователей - занимается выбором тестов, их прохождением,
-- 2 группа пользователей - это администраторы тестов, в обязанности которых входит создание и управление тестами
-### Список сущностей (объектов реального мира):
-- Тест (Test)
+* Test
 
-- Вопрос (Question)
+* Question
 
-- Ответ (Answer)
+* Answer
 
-- Категория (Category)
+* Category
 
-- Результат (Result)
+* Result
 
-- Пользователи (User)
-
+* User
